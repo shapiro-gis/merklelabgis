@@ -2,6 +2,8 @@
 #' Title
 #'
 #' @return
+#' @import httr
+#' @import jsonlite
 #' @export
 #'
 #' @examples
