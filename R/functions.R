@@ -1,4 +1,7 @@
 
+#' @return 
+#' @export
+#'
 bucket <- function() {
   MerkleLabGIS <- GET("https://devise.uwyo.edu/umbraco/api/MerkleGisDataApi/GetFiles")
   MerkleLabGIS <- fromJSON(rawToChar(MerkleLabGIS$content))
