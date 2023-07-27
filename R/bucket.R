@@ -4,6 +4,7 @@
 #' @return
 #' @import httr
 #' @import jsonlite
+#' @import dplyr
 #' @export
 #'
 #' @examples
