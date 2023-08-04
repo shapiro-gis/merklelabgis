@@ -62,8 +62,8 @@ bucket <- function() {
   snodas$Category[snodas$metric == "SWE"] <- "Snodas_SWE"
   
   
-  #Get Dayment Data
-  dayment<- httr::POST(
+  #Get Daymet Data
+  daymet<- httr::POST(
     "https://devise.uwyo.edu/Umbraco/api/DaymetApi/GetData",
     httr::content_type_json(),
     body = jsonlite::toJSON(
@@ -74,13 +74,13 @@ bucket <- function() {
     )
   ) %>%
     content()
-  dayment <- do.call(rbind.data.frame, dayment)
-  dayment$Category[dayment$metric == "swe"] <- "Dayment_SWE"
-  dayment$Category[dayment$metric == "prcp"] <- "Dayment_PRCP"
-  dayment$Category[dayment$metric == "tmax"] <- "Dayment_TMAX"
+  daymet <- do.call(rbind.data.frame, daymet)
+  daymet$Category[daymet$metric == "swe"] <- "Daymet_SWE"
+  daymet$Category[daymet$metric == "prcp"] <- "Daymet_PRCP"
+  daymet$Category[daymet$metric == "tmax"] <- "Daymet_TMAX"
   
   
-  MerkleLabGIS <- merge(merge(MerkleLabGIS, snodas,all = TRUE), dayment, all = TRUE)
+  MerkleLabGIS <- merge(merge(MerkleLabGIS, snodas,all = TRUE), daymet, all = TRUE)
 
   return(MerkleLabGIS)
 }
